@@ -2,7 +2,7 @@
     import {Step} from "@skeletonlabs/skeleton";
     import {_} from "$lib/language";
 
-    export let locked: boolean | undefined;
+    export let locked: boolean = false;
 </script>
 
 <Step buttonNextLabel={$_('stepper.next')}

@@ -2,7 +2,7 @@
     import {AppBar, Step, Stepper} from "@skeletonlabs/skeleton";
     import { RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
     import { focusTrap } from '@skeletonlabs/skeleton';
-    import VideoSetup from "../components/VideoSetup.svelte";
+    import VideoSetup from "../components/StepVideoSetup.svelte";
     import LocalizedStepper from "../components/LocalizedStepper.svelte";
 
     let value: number = 0;
