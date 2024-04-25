@@ -3,6 +3,7 @@
     import { RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
     import { focusTrap } from '@skeletonlabs/skeleton';
     import VideoSetup from "../components/VideoSetup.svelte";
+    import LocalizedStepper from "../components/LocalizedStepper.svelte";
 
     let value: number = 0;
     let isFocused: boolean = true;
@@ -10,7 +11,7 @@
 
 <form use:focusTrap={isFocused} class="card p-4 flex flex-col space-y-2.5">
 
-    <Stepper>
+    <LocalizedStepper>
         <VideoSetup />
         <Step>
             <svelte:fragment slot="header"> Testing </svelte:fragment>
@@ -31,5 +32,5 @@
             </label>
             <button class="btn variant-filled-primary">Submit</button>
         </Step>
-    </Stepper>
+    </LocalizedStepper>
 </form>

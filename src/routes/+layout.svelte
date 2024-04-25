@@ -3,7 +3,7 @@
     import {AppBar} from "@skeletonlabs/skeleton";
     import { LightSwitch } from '@skeletonlabs/skeleton';
     import {setupI18n} from "$lib/language";
-    import { locale, locales } from "svelte-i18n";
+    import LanguageToggle from "../components/LanguageToggle.svelte";
 
     setupI18n();
 </script>
@@ -14,11 +14,7 @@
     </svelte:fragment>
     <div class="h3"> Feelies.Website </div>
     <svelte:fragment slot="trail">
-        <select bind:value={$locale} class="select w-fit">
-            {#each $locales as l}
-                <option value={l}>{l}</option>
-            {/each}
-        </select>
+        <LanguageToggle />
         <LightSwitch />
     </svelte:fragment>
 </AppBar>

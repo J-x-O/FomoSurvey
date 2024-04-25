@@ -8,6 +8,12 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'de' }) {
                 greeting: 'Thank you so much for participating in this study!',
                 camera: 'First we need to ensure your camera is working correctly.',
                 success: 'Perfect, your camera is working perfectly!',
+            },
+            stepper: {
+                step: 'Step',
+                next: 'Next',
+                back: 'Back',
+                complete: 'Complete',
             }
         },
         de: {
@@ -16,6 +22,12 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'de' }) {
                 camera: 'Zuerst müssen wir sicherstellen, dass Ihre Kamera korrekt funktioniert.',
 
                 success: 'Perfekt, Ihre Kamera funktioniert einwandfrei!',
+            },
+            stepper: {
+                step: 'Schritt',
+                next: 'Weiter',
+                back: 'Zurück',
+                complete: 'Fertig',
             }
         },
     });
