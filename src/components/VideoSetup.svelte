@@ -1,11 +1,16 @@
 <script>
-import {Step} from "@skeletonlabs/skeleton";
-import { _ } from "$lib/language";
+    import LocalizedStep from "./LocalizedStep.svelte";
+    import {_} from "$lib/language";
+    import {stream, requestCameraAccess} from "$lib/cameraStore";
 </script>
 
-<Step>
-    <svelte:fragment slot="header"> Setup </svelte:fragment>
+<LocalizedStep locked={$stream == null}>
+    <svelte:fragment slot="header"> {$_('setup.title')} </svelte:fragment>
 
     <p> {$_('setup.greeting')} </p>
     <p> {$_('setup.camera')} </p>
-</Step>
+
+    <button class="button" on:click={requestCameraAccess}>
+        <p> {$_('setup.button')} </p>
+    </button>
+</LocalizedStep>

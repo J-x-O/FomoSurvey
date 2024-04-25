@@ -5,8 +5,10 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'de' }) {
     dictionary.set({
         en: {
             setup: {
+                title: 'Setup',
                 greeting: 'Thank you so much for participating in this study!',
                 camera: 'First we need to ensure your camera is working correctly.',
+                button: 'Allow camera',
                 success: 'Perfect, your camera is working perfectly!',
             },
             stepper: {
@@ -18,8 +20,10 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'de' }) {
         },
         de: {
             setup: {
+                title: 'Einrichtung',
                 greeting: 'Vielen Dank, dass Sie an dieser Studie teilnehmen!',
                 camera: 'Zuerst müssen wir sicherstellen, dass Ihre Kamera korrekt funktioniert.',
+                button: 'Kamera freigeben',
 
                 success: 'Perfekt, Ihre Kamera funktioniert einwandfrei!',
             },

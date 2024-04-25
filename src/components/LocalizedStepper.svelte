@@ -3,9 +3,6 @@
     import {Stepper} from "@skeletonlabs/skeleton";
 </script>
 
-<Stepper stepTerm={$_('stepper.step')}
-         buttonNextLabel={$_('stepper.next')}
-         buttonBackLabel={$_('stepper.back')}
-         buttonCompleteLabel={$_('stepper.complete')}>
+<Stepper stepTerm={$_('stepper.step')}>
     <slot />
 </Stepper>
