@@ -3,7 +3,8 @@
     import {AppBar} from "@skeletonlabs/skeleton";
     import { LightSwitch } from '@skeletonlabs/skeleton';
     import {setupI18n} from "$lib/language";
-    import LanguageToggle from "../components/LanguageToggle.svelte";
+    import LanguageToggle from "../components/Header/LanguageToggle.svelte";
+    import RecordIndicator from "../components/Header/RecordIndicator.svelte";
 
     setupI18n();
 </script>
@@ -14,6 +15,7 @@
     </svelte:fragment>
     <div class="h3"> Feelies.Website </div>
     <svelte:fragment slot="trail">
+        <RecordIndicator />
         <LanguageToggle />
         <LightSwitch />
     </svelte:fragment>

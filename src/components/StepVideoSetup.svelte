@@ -1,13 +1,14 @@
 <script lang="ts">
     import LocalizedStep from "./LocalizedStep.svelte";
     import {_} from "$lib/language";
-    import {stream, requestCameraAccess} from "$lib/cameraStore";
+    import {requestCameraAccess, getStream} from "$lib/cameraStore";
 
     $: if(video) {
         video.srcObject = $stream;
         video.play();
     }
 
+    let stream = getStream();
     let video: HTMLVideoElement;
 </script>
 
