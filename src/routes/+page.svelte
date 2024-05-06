@@ -1,11 +1,10 @@
 <script lang="ts">
-    import {AppBar, Step, Stepper} from "@skeletonlabs/skeleton";
-    import { RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
     import { focusTrap } from '@skeletonlabs/skeleton';
-    import StepVideoSetup from "../components/StepVideoSetup.svelte";
-    import LocalizedStepper from "../components/LocalizedStepper.svelte";
-    import StepGreeting from "../components/StepGreeting.svelte";
-    import StepVideoReaction from "../components/StepVideoReaction.svelte";
+    import StepVideoSetup from "../components/Steps/StepVideoSetup.svelte";
+    import LocalizedStepper from "../components/Localization/LocalizedStepper.svelte";
+    import StepGreeting from "../components/Steps/StepGreeting.svelte";
+    import StepVideoReaction from "../components/Steps/StepVideoReaction.svelte";
+    import {_} from "$lib/language";
 
     let value: number = 0;
     let isFocused: boolean = true;
@@ -16,6 +15,6 @@
     <LocalizedStepper>
         <StepGreeting />
         <StepVideoSetup />
-        <StepVideoReaction />
+        <StepVideoReaction header={$_("reaction.title") + " 1/1"} videoPath="videos/placeholder.mp4"/>
     </LocalizedStepper>
 </form>

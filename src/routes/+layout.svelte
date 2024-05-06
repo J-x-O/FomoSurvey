@@ -5,6 +5,10 @@
     import {setupI18n} from "$lib/language";
     import LanguageToggle from "../components/Header/LanguageToggle.svelte";
     import RecordIndicator from "../components/Header/RecordIndicator.svelte";
+    import {getIsRecording} from "$lib/cameraStore";
+    import type {Readable} from "svelte/store";
+
+    let isRecording: Readable<boolean> = getIsRecording();
 
     setupI18n();
 </script>
@@ -15,7 +19,7 @@
     </svelte:fragment>
     <div class="h3"> Feelies.Website </div>
     <svelte:fragment slot="trail">
-        <RecordIndicator />
+        <RecordIndicator isRecording={$isRecording}/>
         <LanguageToggle />
         <LightSwitch />
     </svelte:fragment>

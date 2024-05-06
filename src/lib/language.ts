@@ -1,7 +1,7 @@
 
 import { dictionary, locale, _ } from 'svelte-i18n';
 
-function setupI18n({ withLocale: _locale } = { withLocale: 'de' }) {
+function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
     dictionary.set({
         en: {
             greeting: {
@@ -23,7 +23,33 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'de' }) {
                 title: 'Setup',
                 camera: 'First we need to ensure your camera is working correctly.',
                 button: 'Allow camera',
-                success: 'Perfect, your camera is working perfectly!',
+                success: 'Perfect, your camera is working, please ensure you are visible in the camera frame and the room is well lit',
+                confirm: 'I am visible and the lights are turned on',
+            },
+            reaction: {
+                title: 'Video',
+                loading: 'starting...',
+
+                valence_question: 'To what extent did this make you feel pleasant?',
+                valence_left: 'very unpleasant',
+                valence_right: 'very pleasant',
+
+                arousal_question: 'To what extent did this make you feel stimulated?',
+                arousal_left: 'more subdued',
+                arousal_right: 'more stimulated',
+
+                intensity_question: 'How intense was the felt emotion?',
+                intensity_left: 'very weak',
+                intensity_right: 'very strong',
+
+                class_question: 'Which word would you use to describe the emotion?',
+                class_neutral: 'Neutral',
+                class_fear: 'Fear',
+                class_anger: 'Anger',
+                class_disgust: 'Disgust',
+                class_happiness: 'Happiness',
+                class_sadness: 'Sadness',
+                class_surprise: 'Surprise',
             },
             stepper: {
                 step: 'Step',
@@ -52,7 +78,33 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'de' }) {
                 title: 'Einrichtung',
                 camera: 'Zuerst müssen wir sicherstellen, dass Ihre Kamera korrekt funktioniert.',
                 button: 'Kamera freigeben',
-                success: 'Perfekt, Ihre Kamera funktioniert einwandfrei!',
+                success: 'Perfekt, Ihre Kamera funktioniert, bitte stellen Sie sicher, dass Sie im Kamerarahmen sichtbar sind und der Raum gut beleuchtet ist',
+                confirm: 'Ich bin sichtbar und das Licht ist eingeschaltet',
+            },
+            reaction: {
+                title: 'Video',
+                loading: 'startet...',
+
+                valence_question: 'Zu welchem Ausmaß hat Sie das Video angenehm fühlen lassen?',
+                valence_left: 'sehr unangenehm',
+                valence_right: 'sehr angenehm',
+
+                arousal_question: 'Zu welchem Ausmaß hat Sie das Video angeregt?',
+                arousal_left: 'mehr gedämpft',
+                arousal_right: 'mehr angeregt',
+
+                intensity_question: 'Wie intensiv war die gefühlte Emotion?',
+                intensity_left: 'sehr schwach',
+                intensity_right: 'sehr stark',
+
+                class_question: 'Welches Wort würden Sie verwenden, um die Emotion zu beschreiben?',
+                class_neutral: 'Neutral',
+                class_fear: 'Angst',
+                class_anger: 'Wut',
+                class_disgust: 'Ekel',
+                class_happiness: 'Fröhlichkeit',
+                class_sadness: 'Traurigkeit',
+                class_surprise: 'Überraschung',
             },
             stepper: {
                 step: 'Schritt',

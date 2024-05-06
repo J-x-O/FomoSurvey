@@ -1,9 +1,9 @@
 <script lang="ts">
-    import LocalizedStep from "./LocalizedStep.svelte";
+    import LocalizedStep from "../Localization/LocalizedStep.svelte";
     import {_} from "$lib/language.js";
     import {SlideToggle} from "@skeletonlabs/skeleton";
-    import TextToggle from "./TextToggle.svelte";
-    import RecordIndicator from "./Header/RecordIndicator.svelte";
+    import TextToggle from "../Survey/TextToggle.svelte";
+    import RecordIndicator from "../Header/RecordIndicator.svelte";
 
     let comfy: boolean = false;
     let camera: boolean = false;

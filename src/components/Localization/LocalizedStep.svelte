@@ -3,14 +3,17 @@
     import {_} from "$lib/language";
     import type {Writable} from "svelte/store";
     import type {StepperState} from "@skeletonlabs/skeleton/dist/components/Stepper/types";
-
-    export let state: Writable<StepperState> | undefined;
+    import {getContext} from "svelte";
+    export let state: Writable<StepperState> | undefined = getContext("state");
+    export const index = $state.total;
+    export let active: boolean = false;
+    $: active = $state?.current === index;
     export let locked: boolean = false;
 </script>
 
 <Step buttonNextLabel={$_('stepper.next')}
       buttonBackLabel={$_('stepper.back')}
-      buttonCompleteLabel={$_('stepper.complete')} {locked} bind:state={state} {...$$restProps}>
+      buttonCompleteLabel={$_('stepper.complete')} {locked} {state} {...$$restProps}>
     <slot name="header" slot="header"/>
     <slot />
 </Step>

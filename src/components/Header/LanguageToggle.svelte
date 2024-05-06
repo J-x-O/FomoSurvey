@@ -1,7 +1,7 @@
 <script>
     import {locale} from "svelte-i18n";
 
-    $locale = "de";
+    $locale = "en";
 
     function handleClick() {
         $locale = $locale === "en" ? "de" : "en";
