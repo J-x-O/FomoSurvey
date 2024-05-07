@@ -7,6 +7,7 @@
 
     let comfy: boolean = false;
     let camera: boolean = false;
+    let emotional: boolean = false;
 </script>
 
 <LocalizedStep locked={!comfy || !camera}>
@@ -24,4 +25,7 @@
         <RecordIndicator isRecording={false}/>
     </div>
     <TextToggle name="CameraButton" bind:checked={camera} text={$_('greeting.camera_button')} />
+
+    <p> {$_('greeting.emotion')} </p>
+    <TextToggle name="EmotionButton" bind:checked={emotional} text={$_('greeting.emotion_button')} />
 </LocalizedStep>

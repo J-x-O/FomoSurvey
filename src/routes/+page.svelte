@@ -5,6 +5,8 @@
     import StepGreeting from "../components/Steps/StepGreeting.svelte";
     import StepVideoReaction from "../components/Steps/StepVideoReaction.svelte";
     import {_} from "$lib/language";
+    import StepCognitiveBias from "../components/Steps/StepCognitiveBias.svelte";
+    import StepTesting from "../components/Steps/StepTesting.svelte";
 
     let value: number = 0;
     let isFocused: boolean = true;
@@ -13,7 +15,9 @@
 <form use:focusTrap={isFocused} class="card p-4 flex flex-col space-y-2.5">
 
     <LocalizedStepper>
+        <StepTesting />
         <StepGreeting />
+        <StepCognitiveBias />
         <StepVideoSetup />
         <StepVideoReaction header={$_("reaction.title") + " 1/1"} videoPath="videos/placeholder.mp4"/>
     </LocalizedStepper>

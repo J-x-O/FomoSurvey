@@ -17,7 +17,8 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
                 camera_inactive: 'Inactive',
                 camera_question: 'Are you okay with being recorded during the survey?',
                 camera_button: 'I understand and agree to the camera recording',
-                emotions: 'The videos of each segment will trigger different emotional reactions, with the maximum rating following the Motion Picture Association film rating system being PG-13'
+                emotion: 'The videos of each segment will trigger different emotional reactions, with the maximum rating following the Motion Picture Association film rating system being PG-13',
+                emotion_button: 'I understand and agree to partake in this study'
             },
             setup: {
                 title: 'Setup',
@@ -72,7 +73,8 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
                 camera_inactive: 'Inaktiv',
                 camera_question: 'Sind Sie damit einverstanden, während der Umfrage aufgezeichnet zu werden?',
                 camera_button: 'Ich verstehe und stimme der Kameraaufzeichnung zu',
-                emotions: 'Die Videos jedes Segments werden unterschiedliche emotionale Reaktionen auslösen, wobei die maximale Bewertung gemäß dem Film-Bewertungssystem der Motion Picture Association PG-13 entspricht'
+                emotion: 'Die Videos jedes Segments werden unterschiedliche emotionale Reaktionen auslösen, wobei die maximale Bewertung gemäß dem Film-Bewertungssystem der Motion Picture Association PG-13 entspricht',
+                emotion_button: 'Ich verstehe und stimme zu an dieser Studie teilzunehmen'
             },
             setup: {
                 title: 'Einrichtung',
