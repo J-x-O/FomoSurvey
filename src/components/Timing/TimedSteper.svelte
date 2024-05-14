@@ -12,14 +12,12 @@
     setContext("timeState", state);
 
     export function startTimer() {
-        console.log("start timer");
         $state.current = 0;
         finished = false;
         startTimerInternal();
     }
 
     export function stopTimer() {
-        console.log("stop timer");
         timer?.stopTimer();
     }
 

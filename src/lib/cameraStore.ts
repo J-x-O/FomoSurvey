@@ -1,43 +1,35 @@
 import {type Readable, type Writable, writable} from 'svelte/store';
+import {waitForCondition} from "$lib/utility";
 
 let recordedChunks: Blob[] = [];
 let mediaRecorder: MediaRecorder|null = null;
 
 export function getStream(): Readable<MediaStream|null> { return stream; }
 let stream:  Writable<MediaStream | null> = writable(null);
+let accessibleStream: MediaStream | null = null;
 
 export function getIsRecording(): Readable<boolean> { return isRecording; }
 let isRecording: Writable<boolean> = writable(false);
 
 export async function requestCameraAccess() {
-    let result = await navigator.mediaDevices.getUserMedia({ video: true });
-    stream.set(result);
-    mediaRecorder = new MediaRecorder(result, { mimeType: "video/webm" });
-    mediaRecorder.ondataavailable = handleData;
-    return result;
-}
-
-function handleData(event: BlobEvent) {
-    if (event.data.size > 0) {
-        recordedChunks.push(event.data);
-    }
+    accessibleStream = await navigator.mediaDevices.getUserMedia({ video: true });
+    stream.set(accessibleStream);
+    return accessibleStream;
 }
 
 export function startRecording() {
-    if (mediaRecorder === null) throw new Error("MediaRecorder is not initialized");
+    if (accessibleStream === null) throw new Error("Stream is not initialized");
+    mediaRecorder = new MediaRecorder(accessibleStream, { mimeType: "video/webm" });
     recordedChunks = [];
+    mediaRecorder.ondataavailable = event => recordedChunks.push(event.data)
     mediaRecorder.start();
     isRecording.set(true);
 }
-export function pauseRecording() {
-    if (mediaRecorder === null) throw new Error("MediaRecorder is not initialized");
-    mediaRecorder.pause();
-    isRecording.set(false);
 
-}
-export function finalizeRecording() {
+export async function finalizeRecording() {
     if (mediaRecorder === null) throw new Error("MediaRecorder is not initialized");
     mediaRecorder.stop();
     isRecording.set(false);
+    await waitForCondition(() => recordedChunks.length > 0, 5000, 1000);
     return new Blob(recordedChunks, { type: "video/webm" });
 }

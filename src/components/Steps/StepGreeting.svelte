@@ -10,7 +10,7 @@
     let emotional: boolean = false;
 </script>
 
-<LocalizedStep locked={!comfy || !camera}>
+<LocalizedStep locked={!comfy || !camera || !emotional}>
     <p slot="header"> {$_('greeting.title')} </p>
     <p> {@html $_('greeting.start')} </p>
 

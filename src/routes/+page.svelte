@@ -6,19 +6,25 @@
     import StepVideoReaction from "../components/Steps/StepVideoReaction.svelte";
     import {_} from "$lib/language";
     import StepCognitiveBias from "../components/Steps/StepCognitiveBias.svelte";
-    import StepTesting from "../components/Steps/StepTesting.svelte";
+    import StepDemographic from "../components/Steps/StepDemographic.svelte";
+    import StepFinalize from "../components/Steps/StepFinalize.svelte";
 
-    let value: number = 0;
     let isFocused: boolean = true;
+
+    let demographic: StepDemographic;
+    let bias: StepCognitiveBias;
+    let videos: StepVideoReaction[] = [];
 </script>
 
 <form use:focusTrap={isFocused} class="card p-4 flex flex-col space-y-2.5">
 
     <LocalizedStepper>
-        <StepTesting />
         <StepGreeting />
-        <StepCognitiveBias />
+        <StepDemographic bind:this={demographic}/>
+        <StepCognitiveBias bind:this={bias}/>
         <StepVideoSetup />
-        <StepVideoReaction header={$_("reaction.title") + " 1/1"} videoPath="videos/placeholder.mp4"/>
+        <StepVideoReaction bind:this={videos[0]} header={$_("reaction.title") + " 1/1"}
+                           id="placeholder" videoPath="videos/placeholder.mp4"/>
+        <StepFinalize {bias} {demographic} {videos}/>
     </LocalizedStepper>
 </form>

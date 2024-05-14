@@ -1,0 +1,24 @@
+{
+  "demographic": {
+    "age": 23,
+    "gender": "male"
+  },
+  "bias": {
+    "fear": 3,
+    "anger": 2,
+    "disgust": 6,
+    "happiness": 7,
+    "sadness": 3,
+    "surprise": 5
+  },
+  "videos": [
+    {
+      "videoID": "placeholder",
+      "videoFileName": "placeholder.mp4",
+      "valance": 6,
+      "arousal": 4,
+      "intensity": 5,
+      "category": "neutral"
+    }
+  ]
+}

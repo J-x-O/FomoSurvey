@@ -1,5 +1,6 @@
 
 import { dictionary, locale, _ } from 'svelte-i18n';
+import {derived, readable} from "svelte/store";
 
 function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
     dictionary.set({
@@ -27,6 +28,30 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
                 success: 'Perfect, your camera is working, please ensure you are visible in the camera frame and the room is well lit',
                 confirm: 'I am visible and the lights are turned on',
             },
+            emotions: {
+                neutral: 'Neutral',
+                fear: 'Fear',
+                anger: 'Anger',
+                disgust: 'Disgust',
+                happiness: 'Happiness',
+                sadness: 'Sadness',
+                surprise: 'Surprise',
+            },
+            demographic: {
+                title: 'Demographics',
+                age: 'How old are you?',
+                gender: 'What gender do you identify as?',
+                gender_placeholder: 'Please select',
+                gender_male: 'male',
+                gender_female: 'female',
+                gender_other: 'other',
+            },
+            bias: {
+                title: 'Emotionality',
+                strength: 'How strongly do you feel the following emotions?',
+                strength_pre: 'very weak',
+                strength_post: 'very strong',
+            },
             reaction: {
                 title: 'Video',
                 loading: 'starting...',
@@ -44,19 +69,20 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
                 intensity_right: 'very strong',
 
                 class_question: 'Which word would you use to describe the emotion?',
-                class_neutral: 'Neutral',
-                class_fear: 'Fear',
-                class_anger: 'Anger',
-                class_disgust: 'Disgust',
-                class_happiness: 'Happiness',
-                class_sadness: 'Sadness',
-                class_surprise: 'Surprise',
             },
             stepper: {
                 step: 'Step',
                 next: 'Next',
                 back: 'Back',
                 complete: 'Complete',
+            },
+            finalize: {
+                title: 'Finalization',
+                upload: 'Thank you for your time! <br>' +
+                    'Please wait while your data is being uploaded.',
+                finished: 'Your data has been successfully uploaded. <br>' +
+                    'You can now close this tab.',
+                thanks: 'Thank you so much for participating in this study!'
             }
         },
         de: {
@@ -83,6 +109,30 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
                 success: 'Perfekt, Ihre Kamera funktioniert, bitte stellen Sie sicher, dass Sie im Kamerarahmen sichtbar sind und der Raum gut beleuchtet ist',
                 confirm: 'Ich bin sichtbar und das Licht ist eingeschaltet',
             },
+            emotions: {
+                neutral: 'Neutral',
+                fear: 'Angst',
+                anger: 'Wut',
+                disgust: 'Ekel',
+                happiness: 'Fröhlichkeit',
+                sadness: 'Traurigkeit',
+                surprise: 'Überraschung',
+            },
+            demographic: {
+                title: 'Demographie',
+                age: 'Wie alt sind Sie?',
+                gender: 'Mit welchem Geschlecht identifizieren Sie sich?',
+                gender_placeholder: 'Bitte auswählen',
+                gender_male: 'Männlich',
+                gender_female: 'Weiblich',
+                gender_other: 'Divers',
+            },
+            bias: {
+                title: 'Emotionalität',
+                strength: 'Wie stark fühlen Sie die folgenden Emotionen?',
+                strength_pre: 'sehr schwach',
+                strength_post: 'sehr stark',
+            },
             reaction: {
                 title: 'Video',
                 loading: 'startet...',
@@ -100,19 +150,20 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
                 intensity_right: 'sehr stark',
 
                 class_question: 'Welches Wort würden Sie verwenden, um die Emotion zu beschreiben?',
-                class_neutral: 'Neutral',
-                class_fear: 'Angst',
-                class_anger: 'Wut',
-                class_disgust: 'Ekel',
-                class_happiness: 'Fröhlichkeit',
-                class_sadness: 'Traurigkeit',
-                class_surprise: 'Überraschung',
             },
             stepper: {
                 step: 'Schritt',
                 next: 'Weiter',
                 back: 'Zurück',
                 complete: 'Fertig',
+            },
+            finalize: {
+                title: 'Finalisierung',
+                upload: 'Vielen Dank für Ihre Zeit! <br>' +
+                    'Bitte warten Sie, während Ihre Daten hochgeladen werden.',
+                finished: 'Ihre Daten wurden erfolgreich hochgeladen. <br>' +
+                    'Sie können jetzt diesen Tab schließen.',
+                thanks: 'Vielen Dank, dass Sie an dieser Studie teilgenommen haben!'
             }
         },
     });
