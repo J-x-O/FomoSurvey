@@ -1,24 +1,13 @@
-# Use the official Node.js 16 image.
-# https://hub.docker.com/_/node
-FROM node:16
+FROM node AS build
 
-# The WORKDIR instruction sets the working directory for everything that will happen next
 WORKDIR /app
 
-# Copy all local files into the image
-COPY . .
-
-# Clean install all node modules
-RUN npm ci
-
-# Build SvelteKit app
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install
+COPY . ./
 RUN npm run build
 
-# Delete source code files that were used to build the app that are no longer needed
-RUN rm -rf src/ static/
-
-# The USER instruction sets the user name to use as the default user for the remainder of the current stage
-USER node:node
-
-# This is the command that will be run inside the image when you tell Docker to start the container
-CMD ["node","build/index.js"]
+FROM nginx
+COPY --from=build /app/build /usr/share/nginx/html
+COPY ./ngnix.conf /etc/nginx/conf.d/default.conf
