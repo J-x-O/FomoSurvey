@@ -8,6 +8,6 @@
     }
 </script>
 
-<button class="button text-2xl" on:click={handleClick}>
+<button class="button text-2xl leading-6" on:click={handleClick}>
     {$locale === "en" ? "🇬🇧" : "🇩🇪"}
 </button>

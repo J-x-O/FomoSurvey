@@ -68,19 +68,23 @@
 </script>
 
 <LocalizedStep bind:active={isActive} locked={!finished} buttonBack="invisible">
-    <div slot="header"> {header} </div>
+    <div slot="header">
+        {#if finished}
+            {header}
+        {/if}
+    </div>
     <TimedSteper {timingMs} bind:this={timer} bind:finished={finished} on:finished={handleFinished}>
         <TimedStep>
             <div class="w-fit mx-auto variant-filled rounded-lg relative">
                 <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-xl"> {$_("reaction.loading")} </div>
                 <!-- svelte-ignore a11y-media-has-caption -->
-                <video class="invisible max-h-96" src={videoPreload} bind:duration/>
+                <video class="invisible h-[calc(100vh-16rem)]" src={videoPreload} bind:duration/>
             </div>
         </TimedStep>
         <TimedStep>
-            <div class="w-fit mx-auto max-h-96">
+            <div class="w-fit mx-auto h-[calc(100vh-16rem)]">
                 <!-- svelte-ignore a11y-media-has-caption -->
-                <video class="max-h-96 rounded-lg" src={videoPreload} autoplay loop/>
+                <video class="h-full rounded-lg" src={videoPreload} autoplay loop/>
             </div>
         </TimedStep>
         <TimedFinalStep>

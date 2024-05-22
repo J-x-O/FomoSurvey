@@ -18,7 +18,7 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
                 camera_inactive: 'Inactive',
                 camera_question: 'Are you okay with being recorded during the survey?',
                 camera_button: 'I understand and agree to the camera recording',
-                emotion: 'The videos of each segment will trigger different emotional reactions, with the maximum rating following the Motion Picture Association film rating system being PG-13',
+                emotion: 'The 18 short clips you are about to watch, will sometimes trigger very intense emotional reactions, with content being filtered following the german youth protection law.',
                 emotion_button: 'I understand and agree to partake in this study'
             },
             setup: {
@@ -83,7 +83,8 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
                 finished: 'Your data has been successfully uploaded. <br>' +
                     'You can now close this tab.',
                 thanks: 'Thank you so much for participating in this study!'
-            }
+            },
+            mobile: "Please use a desktop or laptop computer to partake in this survey."
         },
         de: {
             greeting: {
@@ -99,7 +100,7 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
                 camera_inactive: 'Inaktiv',
                 camera_question: 'Sind Sie damit einverstanden, während der Umfrage aufgezeichnet zu werden?',
                 camera_button: 'Ich verstehe und stimme der Kameraaufzeichnung zu',
-                emotion: 'Die Videos jedes Segments werden unterschiedliche emotionale Reaktionen auslösen, wobei die maximale Bewertung gemäß dem Film-Bewertungssystem der Motion Picture Association PG-13 entspricht',
+                emotion: 'Die 18 kurzen Videoclips welche Sie gleich schauen, werden teilweise sehr starke emotionale Reaktionen auslösen, wobei der Inhalt nach dem deutschen Jugendschutzgesetz gefiltert wurde.',
                 emotion_button: 'Ich verstehe und stimme zu an dieser Studie teilzunehmen'
             },
             setup: {
@@ -164,7 +165,8 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
                 finished: 'Ihre Daten wurden erfolgreich hochgeladen. <br>' +
                     'Sie können jetzt diesen Tab schließen.',
                 thanks: 'Vielen Dank, dass Sie an dieser Studie teilgenommen haben!'
-            }
+            },
+            mobile: "Bitte verwenden Sie einen Desktop- oder Laptop-Computer um an dieser Umfrage teilzunehmen."
         },
     });
     locale.set(_locale);

@@ -1,0 +1,64 @@
+name: publish
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  IMAGE_NAME: fomosurvey.tar.bz2
+
+jobs:
+  publish:
+    name: build and package image
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Docker image
+        run: |
+          docker build . --tag fomosurvey:v0
+      - name: Save Docker image to tar file
+        run: |
+          docker save fomosurvey:v0 | bzip2 > ${{ env.IMAGE_NAME }}
+      - name: Upload tar.bz2 file to server
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          WORK_DIR: ${{ secrets.WORK_DIR }}
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+          scp ${{ env.IMAGE_NAME }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.WORK_DIR }}
+
+  deploy:
+    needs: publish
+    name: deploy image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: install ssh keys
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+      - name: Connect and deploy
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          WORK_DIR: ${{ secrets.WORK_DIR }}
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+            cd ${{ secrets.WORK_DIR }}
+            docker stop FomoSurvey
+            docker rm FomoSurvey
+            docker image rm fomosurvey:v0
+            pv ${{ env.IMAGE_NAME }} | bunzip2 | docker load
+            docker run --restart unless-stopped --name FomoSurvey --publish 127.0.0.1:8210:80 --detach --volume /data/fomo-survey:/app/data fomosurvey:v0
+          "
+      - name: cleanup
+        run: rm -rf ~/.ssh

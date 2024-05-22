@@ -2,7 +2,7 @@
 	import '../app.postcss';
     import {AppBar} from "@skeletonlabs/skeleton";
     import { LightSwitch } from '@skeletonlabs/skeleton';
-    import {setupI18n} from "$lib/language";
+    import {setupI18n, _} from "$lib/language";
     import LanguageToggle from "../components/Header/LanguageToggle.svelte";
     import RecordIndicator from "../components/Header/RecordIndicator.svelte";
     import {getIsRecording} from "$lib/cameraStore";
@@ -15,16 +15,22 @@
 
 <AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end">
     <svelte:fragment slot="lead">
-        <img src="favicon.png" alt="icon" class="size-10">
+        <img src="favicon.png" alt="icon" class="size-6 scale-150 origin-left">
     </svelte:fragment>
-    <div class="h3"> Feelies.Website </div>
+    <div class="text-2xl font-bold leading-6"> Feelies.Website </div>
     <svelte:fragment slot="trail">
         <RecordIndicator isRecording={$isRecording}/>
         <LanguageToggle />
-        <LightSwitch />
+        <LightSwitch/>
     </svelte:fragment>
 </AppBar>
 
-<div class="max-w-screen-lg mx-auto p-24">
+<div class="mx-auto px-24 py-12 hidden sm:block">
     <slot />
+</div>
+
+<div class="sm:hidden px-24 py-12">
+    <div class="card p-4">
+        {$_('mobile')}
+    </div>
 </div>
