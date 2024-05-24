@@ -58,7 +58,7 @@ jobs:
             docker rm FomoSurvey
             docker image rm fomosurvey:v0
             pv ${{ env.IMAGE_NAME }} | bunzip2 | docker load
-            docker run --restart unless-stopped --name FomoSurvey --publish 127.0.0.1:8220:80 --detach --volume /data/fomo-survey:/app/data fomosurvey:v0
+            docker run --restart unless-stopped --name FomoSurvey --publish 127.0.0.1:8220:3000 --detach --volume /data/fomo-survey:/app/data fomosurvey:v0
           "
       - name: cleanup
         run: rm -rf ~/.ssh
