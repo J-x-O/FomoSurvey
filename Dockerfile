@@ -10,7 +10,7 @@ RUN npm run build
 
 FROM node
 ENV NODE_ENV production
-ENV ORIGIN feelies.website
+ENV ORIGIN https://feelies.website
 ENV BODY_SIZE_LIMIT 100000000
 USER node
 WORKDIR /app
