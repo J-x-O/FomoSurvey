@@ -8,6 +8,15 @@ RUN npm install
 COPY . ./
 RUN npm run build
 
-FROM nginx
-COPY --from=build /app/build /usr/share/nginx/html
-COPY ./ngnix.conf /etc/nginx/conf.d/default.conf
+FROM node
+ENV NODE_ENV production
+ENV ORIGIN feelies.website
+ENV BODY_SIZE_LIMIT 100000000
+USER node
+WORKDIR /app
+COPY --from=build --chown=node:node /app/build ./build
+COPY --from=build --chown=node:node /app/node_modules ./node_modules
+COPY --chown=node:node package.json .
+
+EXPOSE 3000
+CMD ["node", "build"]

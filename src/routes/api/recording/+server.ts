@@ -6,7 +6,9 @@ import type { RequestHandler } from './$types';
 export const POST = (async ({ request, url }) => {
     try {
         const data = Object.fromEntries(await request.formData())
-        const folderPath = path.join( process.cwd(), "data", data.participant as string)
+        const folderPath = process.env.development
+            ? path.join(process.cwd(), "data", data.participant as string)
+            : path.join("data", data.participant as string)
         const filePath = path.join(
             folderPath,
             `${data.filename as string}.${((data.video as Blob).type.split("/")[1])}`
