@@ -30,8 +30,8 @@
         let twoRandomEach: Video[] = [];
         for (let key in allElements) {
             twoRandomEach.push(popRandom(key));
-            // twoRandomEach.push(popRandom(key));
-            // twoRandomEach.push(popRandom(key));
+            twoRandomEach.push(popRandom(key));
+            twoRandomEach.push(popRandom(key));
         }
         shuffleArray(twoRandomEach)
         return twoRandomEach;

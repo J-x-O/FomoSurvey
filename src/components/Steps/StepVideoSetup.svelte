@@ -19,13 +19,13 @@
 
     <p> {$_('setup.camera')} </p>
 
-    <button class="btn" on:click={requestCameraAccess}>
+    <button class="btn variant-filled" on:click={requestCameraAccess}>
         {$_('setup.button')}
     </button>
 
     {#if $stream != null}
         <!-- svelte-ignore a11y-media-has-caption -->
-        <video bind:this={video} class="w-full max-h-72 object-left"/>
+        <video bind:this={video} class="w-full max-h-72 object-left rounded-lg"/>
         <p> {$_('setup.success')} </p>
         <TextToggle name="cameraQuality" text={$_('setup.confirm')} bind:checked={checked}/>
     {/if}

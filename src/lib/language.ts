@@ -82,7 +82,8 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
                     'Please wait while your data is being uploaded.',
                 finished: 'Your data has been successfully uploaded. <br>' +
                     'You can now close this tab.',
-                thanks: 'Thank you so much for participating in this study!'
+                thanks: 'Thank you so much for participating in this study! To reset your mood we have prepared some cute cat pictures for you.',
+                next: 'Moooooore!'
             },
             mobile: "Please use a desktop or laptop computer to partake in this survey."
         },
@@ -164,7 +165,8 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
                     'Bitte warten Sie, während Ihre Daten hochgeladen werden.',
                 finished: 'Ihre Daten wurden erfolgreich hochgeladen. <br>' +
                     'Sie können jetzt diesen Tab schließen.',
-                thanks: 'Vielen Dank, dass Sie an dieser Studie teilgenommen haben!'
+                thanks: 'Vielen Dank, dass Sie an dieser Studie teilgenommen haben! Um Ihre Stimmung wieder zurückzusetzen haben wir ihnen ein paar niedliche Katzenbilder vorbereitet.',
+                next: 'Meeeeehr!'
             },
             mobile: "Bitte verwenden Sie einen Desktop- oder Laptop-Computer um an dieser Umfrage teilzunehmen."
         },

@@ -13,7 +13,7 @@
 
 <Step buttonNextLabel={$_('stepper.next')}
       buttonBackLabel={$_('stepper.back')}
-      buttonCompleteLabel={$_('stepper.complete')} locker={false} {state} {...$$restProps}>
+      buttonCompleteLabel={$_('stepper.complete')} {locked} {state} {...$$restProps}>
     <slot name="header" slot="header"/>
     <slot />
 </Step>
