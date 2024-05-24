@@ -80,6 +80,7 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
                 title: 'Finalization',
                 upload: 'Thank you for your time! <br>' +
                     'Please wait while your data is being uploaded.',
+                retry: 'An error occurred. Please try again.',
                 finished: 'Your data has been successfully uploaded. <br>' +
                     'You can now close this tab.',
                 thanks: 'Thank you so much for participating in this study! To reset your mood we have prepared some cute cat pictures for you.',
@@ -163,6 +164,7 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
                 title: 'Finalisierung',
                 upload: 'Vielen Dank für Ihre Zeit! <br>' +
                     'Bitte warten Sie, während Ihre Daten hochgeladen werden.',
+                retry: 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.',
                 finished: 'Ihre Daten wurden erfolgreich hochgeladen. <br>' +
                     'Sie können jetzt diesen Tab schließen.',
                 thanks: 'Vielen Dank, dass Sie an dieser Studie teilgenommen haben! Um Ihre Stimmung wieder zurückzusetzen haben wir ihnen ein paar niedliche Katzenbilder vorbereitet.',

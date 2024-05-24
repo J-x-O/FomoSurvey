@@ -35,7 +35,7 @@
     });
 
     async function handleActiveChanged(timer: TimedSteper, active: boolean) {
-        if (!timer) return;
+        if (!timer || !timer.stopTimer) return;
         if (active) {
             await waitForCondition(() => videoPreload != '');
             timer.startTimer();
@@ -48,7 +48,7 @@
     }
 
     export function uploadVideo(participant: string) {
-        if (!blob) throw new Error("No video to upload");
+        if (!blob) return { ok: false, error: "No video recorded" }
         return uploadVideoBlob(participant, id, blob);
     }
 

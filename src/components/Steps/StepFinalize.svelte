@@ -14,22 +14,29 @@
     let participantId: string = crypto.randomUUID();
 
     let progress = 0;
+    let failure = false;
     let finished = false;
     let active: boolean = false;
     $: if (active) startUpload();
 
     async function startUpload() {
+        failure = false;
         progress = 0;
         for (let video of videos) {
-            await video.uploadVideo(participantId);
+            let answer = await video.uploadVideo(participantId);
+            if (!answer.ok) {
+                failure = true;
+                return;
+            }
             progress++;
         }
-        await uploadResults(participantId, {
+        let answer = await uploadResults(participantId, {
             demographic: demographic.extractData(),
             bias: bias.extractData(),
             videos: videos.map(v => v.extractData())
         });
-        finished = true;
+        if (answer.ok) finished = true;
+        else failure = true;
     }
 
     let imageIndex = 0;
@@ -43,7 +50,14 @@
     <div slot="header"> {$_('finalize.title')} </div>
     {#if !finished}
         <p>{@html $_('finalize.upload')}</p>
-        <ProgressBar bind:value={progress} min={0} max={videos.length} />
+        {#if !failure}
+            <ProgressBar bind:value={progress} min={0} max={videos.length} />
+        {/if}
+        {#if failure}
+            <button class="btn w-fit" on:click={() => startUpload()}>
+                {$_('finalize.retry')}
+            </button>
+        {/if}
     {:else}
         <p>{@html $_('finalize.finished')}</p>
         <p>{$_('finalize.thanks')}</p>
